@@ -1,0 +1,47 @@
+Windows:
+
+PowerShell
+
+Install QEMU:
+
+1 - Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
+
+2 - choco install -y qemu
+
+Add To Path:
+
+3 - [Environment]::SetEnvironmentVariable("Path", "$env:Path;C:\Program Files\QEMU", "Machine")
+
+Load Nuance:
+
+4 - cd 'Your path to file "Nuance.img"
+
+5 - qemu-system-x86_64 -drive file=Nuance.img,format=raw,media=disk -boot a -serial mon:stdio 
+
+SuccessFully!
+
+Debian:
+
+Bash:
+
+Install QEMU:
+
+1 - sudo apt update
+
+2 - sudo apt upgrade
+
+3 - sudo apt install qemu
+
+4 - cd 'Your path to file "Nuance.img"
+
+5 - qemu-system-x86_64 -drive file=Nuance.img,format=raw,media=disk -boot a -serial mon:stdio
+
+Arch:
+
+Bash:
+	
+1 - sudo pacman -S qemu
+
+2 - cd 'Your path to file "Nuance.img"
+ 
+3 - qemu-system-x86_64 -drive file=Nuance.img,format=raw,media=disk -boot a -serial mon:stdio
